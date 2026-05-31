@@ -5,6 +5,7 @@ valor_FaceValue = None
 valor_M_vencimiento = None
 valor_C_cupon = None
 valor_r_rendimiento = None
+Flujo_Caja = None
 
 #6-Creamos la función: 
 def guardar_valor():
@@ -12,14 +13,19 @@ def guardar_valor():
     global valor_M_vencimiento
     global valor_C_cupon
     global valor_r_rendimiento
+    global Flujo_Caja
     
-    valor_FaceValue = caja_texto.get()
-    valor_M_vencimiento = caja_entry_M.get()
-    valor_C_cupon = caja_entry_C.get()
-    valor_r_rendimiento = caja_entry_r.get()
+    valor_FaceValue = int(caja_texto.get())
+    valor_M_vencimiento = int(caja_entry_M.get())
+    valor_C_cupon = int(caja_entry_C.get())
+    valor_r_rendimiento = int(caja_entry_r.get())
 
     print(f"Los valores para FaceValue = {valor_FaceValue}, M_vencimiento = {valor_M_vencimiento}, C_cupon= {valor_C_cupon}, r_rendimiento= {valor_r_rendimiento}")
     
+    #Creamos la variable array Flujo de Caja[t]:
+    Flujo_Caja = [valor_FaceValue*valor_C_cupon] *valor_M_vencimiento
+    print(len(Flujo_Caja))
+
     return valor_FaceValue
 
 #1-Se crea la ventana principal:
