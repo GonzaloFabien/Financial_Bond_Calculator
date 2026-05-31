@@ -6,6 +6,8 @@ valor_M_vencimiento = None
 valor_C_cupon = None
 valor_r_rendimiento = None
 Flujo_Caja = None
+valor_precio = None
+Duración_de_maculay = None
 
 #6-Creamos la función: 
 def guardar_valor():
@@ -30,7 +32,19 @@ def guardar_valor():
     #Valor descontado de los flujos de Caja
     Descontado_Flujo_Caja = [(Flujo/((1+(valor_r_rendimiento/100))**(t+1))) for t, Flujo in enumerate(Flujo_Caja)]
     #Valor del bono por SUM -> VP(Flujos_Caja)
-    print(sum(Descontado_Flujo_Caja))
+    global valor_precio
+    valor_precio = sum(Descontado_Flujo_Caja)
+    print("Valor del bono P= ",valor_precio)
+
+
+    #Ahora vamos con la Duración de un bono, porentajes de la cartera y su valor:
+    wt_porcentaje_Flujo = [Flujo/valor_precio for Flujo in Descontado_Flujo_Caja]
+    global Duración_de_maculay
+    
+    W_x_T_Flujos = [Flujo*(1+t) for t, Flujo in enumerate(wt_porcentaje_Flujo)]
+    Duración_de_maculay = sum(W_x_T_Flujos)
+    
+    print("Duración del bono D= ", Duración_de_maculay)
 
 
     return valor_FaceValue
