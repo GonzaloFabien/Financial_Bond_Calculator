@@ -23,8 +23,12 @@ def guardar_valor():
     print(f"Los valores para FaceValue = {valor_FaceValue}, M_vencimiento = {valor_M_vencimiento}, C_cupon= {valor_C_cupon}, r_rendimiento= {valor_r_rendimiento}")
     
     #Creamos la variable array Flujo de Caja[t]:
-    Flujo_Caja = [valor_FaceValue*valor_C_cupon] *valor_M_vencimiento
-    print(len(Flujo_Caja))
+    Flujo_Caja = [valor_FaceValue*(valor_C_cupon/100)] *valor_M_vencimiento
+    Flujo_Caja[-1] = Flujo_Caja[-1]+valor_FaceValue
+    #Devuelve el Flujo final con el FaceValue?
+    print(Flujo_Caja[0])
+    print(f"total de flujos : {len(Flujo_Caja)}")
+    print(Flujo_Caja[-1])
 
     return valor_FaceValue
 
