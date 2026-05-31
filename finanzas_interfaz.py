@@ -25,10 +25,13 @@ def guardar_valor():
     #Creamos la variable array Flujo de Caja[t]:
     Flujo_Caja = [valor_FaceValue*(valor_C_cupon/100)] *valor_M_vencimiento
     Flujo_Caja[-1] = Flujo_Caja[-1]+valor_FaceValue
-    #Devuelve el Flujo final con el FaceValue?
-    print(Flujo_Caja[0])
-    print(f"total de flujos : {len(Flujo_Caja)}")
-    print(Flujo_Caja[-1])
+    
+
+    #Valor descontado de los flujos de Caja
+    Descontado_Flujo_Caja = [(Flujo/((1+(valor_r_rendimiento/100))**(t+1))) for t, Flujo in enumerate(Flujo_Caja)]
+    #Valor del bono por SUM -> VP(Flujos_Caja)
+    print(sum(Descontado_Flujo_Caja))
+
 
     return valor_FaceValue
 
