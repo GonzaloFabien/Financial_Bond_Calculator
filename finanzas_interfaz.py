@@ -6,7 +6,7 @@ valor_M_vencimiento = None
 valor_C_cupon = None
 valor_r_rendimiento = None
 Flujo_Caja = None
-valor_precio = None
+valor_precio_P = None
 Duración_de_maculay = None
 
 #6-Creamos la función: 
@@ -32,19 +32,25 @@ def guardar_valor():
     #Valor descontado de los flujos de Caja
     Descontado_Flujo_Caja = [(Flujo/((1+(valor_r_rendimiento/100))**(t+1))) for t, Flujo in enumerate(Flujo_Caja)]
     #Valor del bono por SUM -> VP(Flujos_Caja)
-    global valor_precio
-    valor_precio = sum(Descontado_Flujo_Caja)
-    print("Valor del bono P= ",valor_precio)
+    global valor_precio_P
+    valor_precio_P = sum(Descontado_Flujo_Caja)
+    print("Valor del bono P= ",valor_precio_P)
 
 
     #Ahora vamos con la Duración de un bono, porentajes de la cartera y su valor:
-    wt_porcentaje_Flujo = [Flujo/valor_precio for Flujo in Descontado_Flujo_Caja]
+    wt_porcentaje_Flujo = [Flujo/valor_precio_P for Flujo in Descontado_Flujo_Caja]
     global Duración_de_maculay
     
     W_x_T_Flujos = [Flujo*(1+t) for t, Flujo in enumerate(wt_porcentaje_Flujo)]
     Duración_de_maculay = sum(W_x_T_Flujos)
     
     print("Duración del bono D= ", Duración_de_maculay)
+
+    #Se escribe en la pantalla el resultado de la duración:
+    etiqueta_resultado.config(
+        text=f"📊 Resultado del Bono:\nPrecio Actual: ${valor_precio_P:.2f} USD\nDuración del bono: {Duración_de_maculay:.2f} años",
+        fg="green" 
+    )
 
 
     return valor_FaceValue
@@ -106,6 +112,13 @@ caja_entry_r.pack(pady=20)
 #5-Se crea el boton para capturar la función:
 botoncito = tk.Button(ventana, text="Ejecutar", command=guardar_valor)
 botoncito.pack(pady=20)
+
+
+#Final: Se crea la etiqueta del resultado de la Duración:
+etiqueta_resultado = tk.Label(ventana, text="",font=("arial",12,"bold"))
+etiqueta_resultado.pack(pady=15)
+
+
 
 
 #Creamos el algoritmo para poder dar con la operacionalidad de las variables:
