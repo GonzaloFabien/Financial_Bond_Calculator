@@ -64,6 +64,10 @@ ventana.configure(bg="#121824")
 #12 Diseño de la página standar:
 estilo_input = {"bg": "#1f293d", "fg": "#ffffff", "insertbackground": "white", 
                 "relief": "flat", "justify": "center"}
+estilo_label_bg = {"bg": "121824",
+                    "fg" : "#ffffff",
+                    
+}
 
 
 #2-Se añade texto inicial con Label:
@@ -77,9 +81,10 @@ texto_inicial.pack(pady=5)
 #4-Se añade texto por defecto en el input:
 contenedor_form = tk.Frame(ventana)
 contenedor_form.pack(pady=10)
-
+contenedor_form.configure(bg="#121824")
 texto_izquierda = tk.Label(contenedor_form, text="F= Face Value:")
 texto_izquierda.pack(side="left",padx=10)
+texto_izquierda.configure(bg="#121824", fg="#ffffff")
 
 caja_texto = tk.Entry(contenedor_form, width=20,**estilo_input)
 caja_texto.pack(pady=20)
@@ -90,8 +95,11 @@ caja_texto.insert(0,"100")
 
 contenedor_M = tk.Frame(ventana)
 contenedor_M.pack(pady=10)
+contenedor_M.configure(bg="#121824")
 texto_izq_M = tk.Label(contenedor_M, text="M= Años por vencer:")
 texto_izq_M.pack(side="left", padx=10)
+texto_izq_M.configure(bg="#121824", fg="#ffffff")
+
 
 caja_entry_M = tk.Entry(contenedor_M,width=20,**estilo_input)
 caja_entry_M.pack(pady=20)
@@ -99,17 +107,25 @@ caja_entry_M.pack(pady=20)
 #9-Lo mismo para tasa Cupon:
 contenedor_C= tk.Frame(ventana)
 contenedor_C.pack(pady=10)
+contenedor_C.configure(bg="#121824")
 texto_izq_C = tk.Label(contenedor_C, text="C= Tasa cupón:")
 texto_izq_C.pack(side="left", padx=10)
+texto_izq_C.configure(bg="#121824", fg="#ffffff")
+
 
 caja_entry_C = tk.Entry(contenedor_C,width=20,**estilo_input)
 caja_entry_C.pack(pady=20)
 
+
 #10-Lo mismo para la tasa de Mercado r: 
 contenedor_r= tk.Frame(ventana)
 contenedor_r.pack(pady=10)
+contenedor_r.configure(bg="#121824")
+
 texto_izq_r = tk.Label(contenedor_r, text="r= rendimiento Mercado:")
 texto_izq_r.pack(side="left", padx=10)
+texto_izq_r.configure(bg="#121824", fg="#ffffff")
+
 
 caja_entry_r = tk.Entry(contenedor_r,width=20,**estilo_input)
 caja_entry_r.pack(pady=20)
