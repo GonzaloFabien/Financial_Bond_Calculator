@@ -135,6 +135,7 @@ caja_entry_r.pack(pady=20)
 #5-Se crea el boton para capturar la función:
 botoncito = tk.Button(ventana, text="Ejecutar", command=guardar_valor)
 botoncito.pack(pady=20)
+botoncito.configure(bg="#00C853", fg="#0A192F")
 
 
 #Final: Se crea la etiqueta del resultado de la Duración:
