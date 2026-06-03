@@ -49,7 +49,7 @@ def guardar_valor():
     #Se escribe en la pantalla el resultado de la duración:
     etiqueta_resultado.config(
         text=f"📊 Resultado del Bono:\nPrecio Actual: ${valor_precio_P:.2f} USD\nDuración del bono: {Duración_de_maculay:.2f} años",
-        fg="green" 
+        fg="#ffffff", bg="#121824"
     )
 
 
@@ -61,12 +61,14 @@ ventana.title("Bonos")
 ventana.geometry("700x600")
 ventana.configure(bg="#121824")
 
+#12 Diseño de la página standar:
 estilo_input = {"bg": "#1f293d", "fg": "#ffffff", "insertbackground": "white", 
                 "relief": "flat", "justify": "center"}
 
 
 #2-Se añade texto inicial con Label:
-texto_inicial = tk.Label(ventana, text="Calculadora de Bonos: Precio, valor, Duración, Convexidad, etc:")
+texto_inicial = tk.Label(ventana, text="Calculadora de Bonos: Precio, valor, Duración, Convexidad, etc:",
+font=("Helvetica",15, "bold"),justify="center",bg="#121824", fg="#ffffff")
 texto_inicial.pack(pady=5)
 
 
