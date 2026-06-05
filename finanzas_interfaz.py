@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 #Declaramos las variables con None para posteriormente tener un mayor scope:
 valor_FaceValue = None
@@ -21,6 +22,22 @@ def guardar_valor():
     valor_M_vencimiento = int(caja_entry_M.get())
     valor_C_cupon = int(caja_entry_C.get())
     valor_r_rendimiento = int(caja_entry_r.get())
+    periodicidad_anual = selection.get()
+
+    if periodicidad_anual == "Anual":
+        valor_M_vencimiento = valor_M_vencimiento
+        valor_C_cupon = valor_C_cupon
+        valor_r_rendimiento = valor_r_rendimiento
+        print("Valor anual")
+    else:
+        valor_M_vencimiento = valor_M_vencimiento*2 
+        valor_C_cupon = valor_C_cupon/2
+        valor_r_rendimiento = valor_r_rendimiento/2
+        print("valor semestral")
+        
+    
+        
+    print(f"el usuario eligió {periodicidad_anual} con valor de vencimiento {valor_M_vencimiento}")
 
     print(f"Los valores para FaceValue = {valor_FaceValue}, M_vencimiento = {valor_M_vencimiento}, C_cupon= {valor_C_cupon}, r_rendimiento= {valor_r_rendimiento}")
     
@@ -129,6 +146,14 @@ texto_izq_r.configure(bg="#121824", fg="#ffffff")
 
 caja_entry_r = tk.Entry(contenedor_r,width=20,**estilo_input)
 caja_entry_r.pack(pady=20)
+
+
+#13 Se crea un input type=list para datos semestrales:
+selection = tk.StringVar()
+combo = ttk.Combobox(ventana, textvariable=selection, values=("Anual","Semestral"), state="readonly")
+combo.pack(pady=20)
+combo.current(0)
+
 
 
 
