@@ -65,7 +65,7 @@ def guardar_valor():
 
     #Se escribe en la pantalla el resultado de la duración:
     etiqueta_resultado.config(
-        text=f"📊 Resultado del Bono:\nPrecio Actual: ${valor_precio_P:.2f} USD\nDuración del bono: {Duración_de_maculay:.2f} años",
+        text=f"📊 Resultado del Bono:\nPrecio Actual: ${valor_precio_P:.2f} USD\nDuración del bono: {Duración_de_maculay:.2f} años\nDuración de Hicks de {Duración_de_maculay/(1+(valor_r_rendimiento/100))}",
         fg="#ffffff", bg="#121824"
     )
 
